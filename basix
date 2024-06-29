@@ -1,0 +1,77 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 06/29/2024 11:23:16 PM
+// Design Name: 
+// Module Name: basix
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module basix(
+    input a,
+    input b,
+    output reg x,
+    output reg y,
+    output reg u,
+    output reg v,
+    output reg w
+    );
+    always@(a or b)begin
+    x <= a |b;
+    y <= a & b;
+    u <= a ^b;
+    v <= ~a;
+    w <= ~b;
+    end
+endmodule
+
+
+TestBench :
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 06/29/2024 11:27:00 PM
+// Design Name: 
+// Module Name: test_bench
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module test_bench;
+reg a , b;
+wire x,y,u,v,w;
+basix b0(a,b,x,y,v,u,w);
+initial
+begin
+a = 0;
+b = 0;
+#100 a = 1;
+#100 b = 1;
+#100 a =0;
+end
+endmodule
