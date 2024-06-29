@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 06/30/2024 12:30:25 AM
+// Design Name: 
+// Module Name: lfsr
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module lfsr(
+    input [7:0] seed,
+    input clk,
+    output reg [7:0] y
+    );
+    
+    always@(posedge clk)
+    begin
+    y[1]=y[0];
+    y[2]=seed[7]?y[1]^y[7]:y[1];
+     y[3]=seed[6]?y[1]^y[7]:y[1];
+      y[4]=seed[5]?y[1]^y[7]:y[1];
+       y[5]=seed[4]?y[1]^y[7]:y[1];
+        y[6]=seed[3]?y[1]^y[7]:y[1];
+         y[7]=seed[2]?y[1]^y[7]:y[1];
+         end
+endmodule
