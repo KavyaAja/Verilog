@@ -1,0 +1,34 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 06/30/2024 10:11:21 PM
+// Design Name: 
+// Module Name: gatesfromnand
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module gatesfromnand(
+ input a ,b,
+ output notfromnand,orfromnand,andfromnand
+    );
+    wire x , y,z;
+     nand n0(notfromnand , a, a);
+     nand n1(x,a,a);
+     nand n2(y,b,b);
+     nand n3(orfromnand,x,y);
+     nand(z,x,y);
+     nand(andfromnand,z,z);
+endmodule
